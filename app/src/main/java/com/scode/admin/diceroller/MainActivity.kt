@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         diceImage.setImageResource(drawableResource) //Wow
+        //test again
 
     }
 }
