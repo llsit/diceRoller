@@ -1,0 +1,10 @@
+pipeline{
+	agent any
+	states {
+		state { "hello"} {
+	steps {
+		echo "hello world"
+}
+}
+}
+}
