@@ -71,7 +71,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
         })
     }
 
-    fun onLoginClicked(view: View) {
+    fun onLoginClicked() {
         presenter.onLoginClicked()
     }
 }

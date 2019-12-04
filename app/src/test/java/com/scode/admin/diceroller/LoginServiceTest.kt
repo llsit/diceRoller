@@ -1,7 +1,7 @@
 package com.scode.admin.diceroller
 
 import com.scode.admin.diceroller.Login.LoginService
-import junit.framework.Assert.assertEquals
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
