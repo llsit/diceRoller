@@ -13,14 +13,15 @@ pipeline {
                 echo 'Hello world!' 
             }
         }
-    }
-    stage('Build APK') {
-          steps {
+        stage('Build APK') {
+            steps {
                 // Finish building and packaging the APK
                 sh './gradlew assembleDebug'
 
                 // Archive the APKs so that they can be downloaded from Jenkins
                 archiveArtifacts '**/*.apk'
-          }
+            }
+         }
     }
+
 }
