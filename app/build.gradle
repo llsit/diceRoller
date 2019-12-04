@@ -29,6 +29,9 @@ android {
                 testers = "llsit2017@gmail.com"
             }
         }
+        debug {
+            minifyEnabled false
+        }
     }
 }
 
