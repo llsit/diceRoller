@@ -16,13 +16,13 @@ pipeline {
                 sh './gradlew compileDebugSources'
             }
         }
-        stage('Build APK') {
+        stage('Unit test') {
             steps {
-                // Finish building and packaging the APK
-                sh './gradlew assembleDebug'
+                // Compile and run the unit tests for the app and its dependencies
+                sh './gradlew testDebugUnitTest testTest'
 
-                // Archive the APKs so that they can be downloaded from Jenkins
-                archiveArtifacts '**/*.apk'
+                // Analyse the test results and update the build result as appropriate
+                junit '**/TEST-*.xml'
             }
         }
     }

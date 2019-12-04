@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Dice Roller</string>
     <string name="roll">Roll</string>
+    <string name="username_error">username_error</string>
+    <string name="password_error">password_error</string>
+    <string name="login_failed">login_failed</string>
 </resources>
