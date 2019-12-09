@@ -47,6 +47,10 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
         this.presenter = LoginPresenter(this, LoginService())
         this.handleTextChanged()
+
+        button.setOnClickListener {
+            onLoginClicked()
+        }
     }
 
     private fun handleTextChanged() {
