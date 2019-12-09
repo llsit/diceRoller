@@ -10,10 +10,16 @@ pipeline {
                 echo 'Hello world!' 
             }
         }
+        stage('Build Clean Project') {
+                    steps {
+                        // Compile the app and its dependencies
+                        bat './gradlew clean'
+                    }
+                }
         stage('Compile') {
             steps {
                 // Compile the app and its dependencies
-                bat './gradlew diceRoller/'
+                bat './gradlew assembleDebug'
             }
         }
         stage('Unit test') {
