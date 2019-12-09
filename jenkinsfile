@@ -13,7 +13,7 @@ pipeline {
         stage('Compile') {
             steps {
                 // Compile the app and its dependencies
-                bat 'C:\Users\A2G\StudioProjects\diceRoller\gradlew compileDebugSources'
+                bat 'C:/Users/A2G/StudioProjects/diceRoller/gradlew compileDebugSources'
             }
         }
         stage('Unit test') {
