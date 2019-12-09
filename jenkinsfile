@@ -11,15 +11,14 @@ pipeline {
             }
         }
         stage('Build Clean Project') {
-                    steps {
-                        // Compile the app and its dependencies
-                        bat './gradlew clean'
-                    }
-                }
+            steps {
+                bat './gradlew clean'
+            }
+        }
         stage('Compile') {
             steps {
                 // Compile the app and its dependencies
-                bat './gradlew assembleDebug --stacktrace'
+                bat './gradlew compileDebugSources --stacktrace'
             }
         }
         stage('Unit test') {
@@ -29,6 +28,15 @@ pipeline {
 
                 // Analyse the test results and update the build result as appropriate
                 junit '**/TEST-*.xml'
+            }
+        }
+        stage('Build APK') {
+            steps {
+                // Finish building and packaging the APK
+                sh './gradlew assembleDebug'
+
+                // Archive the APKs so that they can be downloaded from Jenkins
+                archiveArtifacts '**/*.apk'
             }
         }
     }
