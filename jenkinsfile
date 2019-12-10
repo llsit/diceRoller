@@ -18,7 +18,7 @@ pipeline {
         stage('Compile') {
             steps {
                 // Compile the app and its dependencies
-                bat 'gradlew compileDebugSources --stacktrace'
+                bat 'gradlew compileDebugSources --stacktrace --scan --info'
             }
         }
         stage('Unit test') {
