@@ -1,20 +1,18 @@
 pipeline {
     agent any
-    options {
-         // Stop the build early in case of compile or test failures
-        skipStagesAfterUnstable()
-    }
     stages {
         stage('Stage 1') {
             steps {
                 echo 'Hello world!' 
             }
         }
-        stage('Scan Sonar') {
+        stage("SonarQube analysis") {
             steps {
-                bat 'start cmd.exe /c C:\\sonar-scanner-cli\\bin\\sonar-scanner.bat -D"sonar.projectKey=diceroller" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.login=7dcd05609b330f0f1c05df5bd73dcfeaaddd9d12"'
+              withSonarQubeEnv('SonarQubeServer') {
+                    bat 'start cmd.exe /c C:\\sonar-scanner-cli\\bin\\sonar-scanner.bat'
+              }
             }
-        }
+          }
     }
 
 }
